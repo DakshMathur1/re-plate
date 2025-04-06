@@ -85,5 +85,11 @@ def classify_image(test_img_path, temperature=25.0, confidence_threshold=0.80, r
 
 # --- Example Usage ---
 # Change the path below to your test image (e.g., a banana from your testing set)
+test_image_path1 = "./Sample_Images/Bananas/TestingImages/bananaExpired.jpg"
+classify_image(test_image_path1)
+
+test_image_path1 = "./Sample_Images/Bananas/TestingImages/bananaGood.jpg"
+classify_image(test_image_path1)
+
 test_image_path1 = "./Sample_Images/Bananas/TestingImages/bananaRisky.jpg"
 classify_image(test_image_path1)
