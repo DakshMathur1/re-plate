@@ -44,7 +44,7 @@ def cosine_similarity(a, b):
     return np.dot(a, b.T)
 
 # Process a test image (for example, banana1)
-test_img_path = "./Sample_Images/Bananas/TestingImages/banana3.jpg"  # Change to your test image path
+test_img_path = "./Sample_Images/Bananas/TestingImages/banana1.jpg"  # Change to your test image path
 if not os.path.exists(test_img_path):
     raise FileNotFoundError(f"Test image not found at {test_img_path}")
 test_embedding = get_embedding(test_img_path)
