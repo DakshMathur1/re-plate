@@ -4,20 +4,20 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
-// Function to get and update state in localStorage
-const getLocalStorage = (key: string, defaultValue: any) => {
-  if (typeof window !== 'undefined') {
-    const saved = localStorage.getItem(key);
-    return saved !== null ? JSON.parse(saved) : defaultValue;
-  }
-  return defaultValue;
+// Define types for inventory items
+type InventoryItem = {
+  id: number;
+  name: string;
+  type: string;
+  condition: string;
+  tags: string[];
 };
 
 export default function Dashboard() {
   const router = useRouter();
   const [upcomingDeliveries, setUpcomingDeliveries] = useState(2);
   const [highlightDeliveries, setHighlightDeliveries] = useState(false);
-  const [inventoryItems, setInventoryItems] = useState([
+  const [inventoryItems, setInventoryItems] = useState<InventoryItem[]>([
     { id: 1, name: 'Bread', type: 'Baked Goods', condition: 'Critical', tags: ['No Nuts'] },
     { id: 2, name: 'Apples', type: 'Produce', condition: 'Good', tags: ['No Nuts', 'Gluten Free'] },
     { id: 3, name: 'Canned Soup', type: 'Canned Goods', condition: 'Good', tags: ['No Nuts', 'Vegan'] },
@@ -48,7 +48,14 @@ export default function Dashboard() {
   
   useEffect(() => {
     // Check if there's a newly accepted request and update the upcoming deliveries count
-    const acceptedRequestCount = getLocalStorage('acceptedRequests', 0);
+    let acceptedRequestCount = 0;
+    try {
+      const savedRequests = localStorage.getItem('acceptedRequests');
+      acceptedRequestCount = savedRequests ? JSON.parse(savedRequests) : 0;
+    } catch (e) {
+      console.error('Error reading acceptedRequests from localStorage:', e);
+    }
+    
     const newValue = 2 + acceptedRequestCount;
     
     if (newValue !== upcomingDeliveries) {
@@ -59,6 +66,33 @@ export default function Dashboard() {
         setHighlightDeliveries(true);
         setTimeout(() => setHighlightDeliveries(false), 3000);
       }
+    }
+    
+    // Load inventory items from localStorage if available
+    try {
+      const storedInventory = localStorage.getItem('inventory');
+      if (storedInventory) {
+        const parsedInventory = JSON.parse(storedInventory);
+        
+        // Combine default items with stored items (for demo purposes)
+        // In a real app, you might want to only use the stored items
+        // or fetch them from an API
+        if (Array.isArray(parsedInventory) && parsedInventory.length > 0) {
+          // Map the stored items to match the expected format if needed
+          const formattedItems = parsedInventory.map(item => ({
+            id: item.id,
+            name: item.name,
+            type: item.food_type,
+            condition: item.condition,
+            tags: Array.isArray(item.restriction_tags) ? item.restriction_tags : []
+          }));
+          
+          // Add new items to the top of the list
+          setInventoryItems([...formattedItems, ...inventoryItems]);
+        }
+      }
+    } catch (error) {
+      console.error('Error loading inventory from localStorage:', error);
     }
   }, []);
   
@@ -241,6 +275,34 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
+      <nav className="flex flex-col space-y-2 mb-8">
+        <a href="/dashboard" className="flex items-center px-4 py-2 bg-[#e8f8f7] text-[#3d9991] rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+          </svg>
+          Dashboard
+        </a>
+        <a href="/add-stock" className="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Add Stock
+        </a>
+        <a href="/analytics" className="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+          Analytics
+        </a>
+        <a href="#" className="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          Settings
+        </a>
+      </nav>
     </div>
   );
 } 

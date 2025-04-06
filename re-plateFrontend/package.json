@@ -9,14 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "apexcharts": "^4.5.0",
     "canvas-confetti": "^1.9.3",
     "leaflet": "^1.9.4",
     "leaflet.heat": "^0.2.0",
     "next": "15.2.4",
     "react": "^19.0.0",
+    "react-apexcharts": "^1.7.0",
     "react-confetti": "^6.4.0",
     "react-dom": "^19.0.0",
-    "react-leaflet": "^5.0.0"
+    "react-leaflet": "^5.0.0",
+    "react-webcam": "^7.2.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

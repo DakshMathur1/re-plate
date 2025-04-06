@@ -6,7 +6,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 // Function to get state from localStorage
-const getLocalStorage = (key: string, defaultValue: any) => {
+const getLocalStorage = (key: string, defaultValue: unknown) => {
   if (typeof window !== 'undefined') {
     const saved = localStorage.getItem(key);
     return saved !== null ? JSON.parse(saved) : defaultValue;
@@ -87,6 +87,21 @@ export default function Sidebar() {
             </svg>
           </span>
           <span className="font-medium">Dashboard</span>
+        </Link>
+        
+        <Link href="/analytics" 
+          className={`flex items-center mb-4 py-3 px-8 mx-4 rounded-xl ${
+            pathname === '/analytics' 
+              ? 'bg-white text-[#2c3e50] shadow-md' 
+              : 'text-[#2c3e50] hover:bg-[#7cbfb9]'
+          } transition-colors`}
+        >
+          <span className="mr-3">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </span>
+          <span className="font-medium">Analytics</span>
         </Link>
         
         <Link href="/requests" 

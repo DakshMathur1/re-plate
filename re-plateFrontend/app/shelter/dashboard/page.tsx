@@ -205,7 +205,7 @@ export default function ShelterDashboard() {
           <span className="text-[#2c3e50] mr-2">ID: OSB27111</span>
           <div className="h-10 w-10 bg-gray-200 rounded-full overflow-hidden">
             <Image
-              src="/shelter-avatar.svg"
+              src="/shelter-avatar.png"
               alt="Shelter Profile"
               width={40}
               height={40}

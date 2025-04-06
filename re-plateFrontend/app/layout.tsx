@@ -24,6 +24,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <style>{`
+          /* Hide Next.js badge */
+          #__next-build-watcher { 
+            display: none !important;
+          }
+          /* Additional selectors to ensure it's hidden */
+          body > div:last-child[role="region"][aria-live="assertive"] {
+            display: none !important;
+          }
+        `}</style>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
