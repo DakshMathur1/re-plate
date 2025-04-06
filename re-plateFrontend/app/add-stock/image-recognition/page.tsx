@@ -503,7 +503,7 @@ export default function ImageRecognition() {
                             type="date"
                             value={bestBeforeDate}
                             onChange={(e) => setBestBeforeDate(e.target.value)}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d9991]"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 text-black focus:ring-[#3d9991]"
                             required
                           />
                         </div>
@@ -528,7 +528,7 @@ export default function ImageRecognition() {
                             id="storageMethod"
                             value={storageMethod}
                             onChange={(e) => setStorageMethod(e.target.value)}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d9991]"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 text-black focus:ring-[#3d9991]"
                           >
                             <option value="refrigerated">Refrigerated</option>
                             <option value="frozen">Frozen</option>
@@ -589,7 +589,7 @@ export default function ImageRecognition() {
                         value={itemName}
                         onChange={(e) => setItemName(e.target.value)}
                         placeholder="Enter item name"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d9991]"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 text-black focus:ring-[#3d9991]"
                         required
                       />
                     </div>
@@ -604,7 +604,7 @@ export default function ImageRecognition() {
                         min="1"
                         value={quantity}
                         onChange={(e) => setQuantity(Number(e.target.value))}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d9991]"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 text-black focus:ring-[#3d9991]"
                       />
                     </div>
                     
