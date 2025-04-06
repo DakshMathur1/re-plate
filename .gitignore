@@ -1,0 +1,57 @@
+# Environment variables
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+venv/
+myenv/
+ENV/
+.cursorignore
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Model files and large data
+*.h5
+*.keras
+*.pkl
+*.model
+*.onnx
+*.pt
+*.pth
+*.bin
+models/
+
+# Images/test data
+# Uncomment if needed
+# *.jpg
+# *.jpeg
+# *.png
+
+# Logs
+logs/
+*.log 
