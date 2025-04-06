@@ -78,9 +78,7 @@ def classify_image(test_img_path, temperature=25.0, confidence_threshold=0.80, r
     max_prob = results[max_label]
     if max_prob >= confidence_threshold:
         print(f"\nConfident prediction: {max_label} with {max_prob * 100:.2f}% confidence.")
-    else:
-        print("\nPrediction is not confident enough; consider reviewing the image or improving prototypes.")
-    
+
     return results
 
 # --- Example Usage ---
