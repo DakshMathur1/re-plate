@@ -25,9 +25,9 @@ def get_embedding(img_path):
 
 # Define prototype image paths (adjust these paths as needed)
 prototypes = {
-    "good": "./Sample_Images/good_banana.jpg",
-    "risky": "./Sample_Images/risky_banana.jpg",
-    "expired": "./Sample_Images/rotten_banana.jpg"
+    "good": "./Sample_Images/Bananas/Training_Images/good_banana.jpg",
+    "risky": "./Sample_Images/Bananas/Training_Images/risky_banana.jpg",
+    "expired": "./Sample_Images/Bananas/Training_Images/rotten_banana.jpg"
 }
 
 # Compute embeddings for each prototype category
@@ -41,11 +41,10 @@ for label, path in prototypes.items():
 def cosine_similarity(a, b):
     return np.dot(a, b.T)
 
-# Now, process a test image (for example, a banana)
-test_img_path = "./Sample_Images/Bananas/TestingImages/banana4.jpg"  # Change to your test image path
+# Process a test image (for example, banana1)
+test_img_path = "./Sample_Images/Bananas/TestingImages/banana3.jpg"  # Change to your test image path
 if not os.path.exists(test_img_path):
     raise FileNotFoundError(f"Test image not found at {test_img_path}")
-
 test_embedding = get_embedding(test_img_path)
 
 # Compute cosine similarities with each prototype
@@ -55,8 +54,8 @@ for label, proto_emb in prototype_embeddings.items():
     sim = cosine_similarity(test_embedding, proto_emb)[0][0]
     similarities[label] = sim
 
-# Optional: sharpen the distribution using a temperature parameter
-temperature = 10.0
+# Sharpen the distribution using a higher temperature parameter
+temperature = 25.0  # Increased temperature for a sharper softmax distribution
 sim_values = np.array(list(similarities.values()))
 exp_sim = np.exp(temperature * sim_values)
 probabilities = exp_sim / exp_sim.sum()
@@ -67,3 +66,12 @@ results = dict(zip(similarities.keys(), probabilities))
 print("Prototype-Based Classification Results:")
 for label, prob in results.items():
     print(f"{label}: {prob * 100:.2f}%")
+
+# Determine the best class and check if it meets the confidence threshold (e.g., 80%)
+max_label = max(results, key=results.get)
+max_prob = results[max_label]
+
+if max_prob >= 0.80:
+    print(f"\nConfident prediction: {max_label} with {max_prob * 100:.2f}% confidence.")
+else:
+    print("\nThe prediction is not confident enough (less than 80%); consider reviewing the image or improving prototypes.")
