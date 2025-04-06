@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#3d9991">
+  <!-- Building with roof -->
+  <path d="M256 60.8L72 188.8V432h368V188.8L256 60.8z" fill="#8ccfc9" opacity="0.7"/>
+  <path d="M256 100L96 208v208h320V208L256 100z" fill="#f5f1e6"/>
+  
+  <!-- Roof triangular part -->
+  <path d="M256 60.8L72 188.8h368L256 60.8z" fill="#3d9991"/>
+  
+  <!-- Door -->
+  <rect x="216" y="280" width="80" height="136" rx="4" fill="#3d9991"/>
+  <rect x="224" y="288" width="64" height="120" rx="2" fill="#f5f1e6"/>
+  
+  <!-- Windows -->
+  <rect x="136" y="240" width="60" height="60" rx="4" fill="#3d9991"/>
+  <rect x="142" y="246" width="48" height="48" rx="2" fill="#f5f1e6"/>
+  
+  <rect x="316" y="240" width="60" height="60" rx="4" fill="#3d9991"/>
+  <rect x="322" y="246" width="48" height="48" rx="2" fill="#f5f1e6"/>
+  
+  <!-- Food Symbol -->
+  <g transform="translate(236, 324) scale(0.6)">
+    <circle cx="40" cy="40" r="32" fill="#3d9991"/>
+    <path d="M40 24c-8.8 0-16 7.2-16 16s7.2 16 16 16 16-7.2 16-16-7.2-16-16-16zm0 28c-6.6 0-12-5.4-12-12s5.4-12 12-12 12 5.4 12 12-5.4 12-12 12z" fill="#f5f1e6"/>
+    <path d="M40 30a2 2 0 0 0-2 2v6h-6a2 2 0 0 0 0 4h6v6a2 2 0 0 0 4 0v-6h6a2 2 0 0 0 0-4h-6v-6a2 2 0 0 0-2-2z" fill="#f5f1e6"/>
+  </g>
+</svg> 

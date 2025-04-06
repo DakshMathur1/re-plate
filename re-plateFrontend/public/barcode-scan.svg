@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#3d9991">
+  <rect x="96" y="112" width="16" height="288" rx="2" ry="2" />
+  <rect x="128" y="112" width="8" height="288" rx="2" ry="2" />
+  <rect x="152" y="112" width="24" height="288" rx="2" ry="2" />
+  <rect x="192" y="112" width="8" height="288" rx="2" ry="2" />
+  <rect x="208" y="112" width="16" height="288" rx="2" ry="2" />
+  <rect x="240" y="112" width="24" height="288" rx="2" ry="2" />
+  <rect x="272" y="112" width="16" height="288" rx="2" ry="2" />
+  <rect x="304" y="112" width="8" height="288" rx="2" ry="2" />
+  <rect x="320" y="112" width="16" height="288" rx="2" ry="2" />
+  <rect x="352" y="112" width="24" height="288" rx="2" ry="2" />
+  <rect x="400" y="112" width="16" height="288" rx="2" ry="2" />
+  
+  <!-- Scan Line -->
+  <rect x="80" y="256" width="352" height="4" rx="2" ry="2" fill="#2ecc71" />
+  
+  <!-- Phone/Scanner Outline -->
+  <path d="M432,96H80a16,16,0,0,0-16,16V400a16,16,0,0,0,16,16H432a16,16,0,0,0,16-16V112A16,16,0,0,0,432,96ZM416,384H96V128H416Z" fill="#3d9991"/>
+  
+  <!-- Scanner Guidance -->
+  <path d="M96,128v32H128V128ZM96,352v32H128V352ZM384,128v32h32V128ZM384,352v32h32V352Z" fill="#2ecc71"/>
+</svg> 
