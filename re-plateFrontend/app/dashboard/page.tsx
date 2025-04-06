@@ -15,7 +15,7 @@ const getLocalStorage = (key: string, defaultValue: any) => {
 
 export default function Dashboard() {
   const router = useRouter();
-  const [upcomingDeliveries, setUpcomingDeliveries] = useState(3);
+  const [upcomingDeliveries, setUpcomingDeliveries] = useState(2);
   const [highlightDeliveries, setHighlightDeliveries] = useState(false);
   const [inventoryItems, setInventoryItems] = useState([
     { id: 1, name: 'Bread', type: 'Baked Goods', condition: 'Critical', tags: ['No Nuts'] },
@@ -36,9 +36,9 @@ export default function Dashboard() {
   
   const shelters = [
     { id: 1, name: 'Yukon Shelter', active: true },
-    { id: 2, name: 'AI Mitchell', active: true },
-    { id: 3, name: 'New Fountain Shelter', active: true },
-    { id: 4, name: 'The Osborn', active: true },
+    { id: 2, name: 'AI Mitchell', active: false },
+    { id: 3, name: 'New Fountain Shelter', active: false },
+    { id: 4, name: 'The Osborn', active: false },
   ];
   
   const userInfo = {
@@ -49,13 +49,13 @@ export default function Dashboard() {
   useEffect(() => {
     // Check if there's a newly accepted request and update the upcoming deliveries count
     const acceptedRequestCount = getLocalStorage('acceptedRequests', 0);
-    const newValue = 3 + acceptedRequestCount;
+    const newValue = 2 + acceptedRequestCount;
     
     if (newValue !== upcomingDeliveries) {
       setUpcomingDeliveries(newValue);
       
       // Highlight the counter if it's not the initial render and value changed
-      if (upcomingDeliveries !== 3) {
+      if (upcomingDeliveries !== 2) {
         setHighlightDeliveries(true);
         setTimeout(() => setHighlightDeliveries(false), 3000);
       }
@@ -63,8 +63,8 @@ export default function Dashboard() {
   }, []);
   
   const handleAddStock = () => {
-    // Implement add stock functionality
-    alert('Add Stock functionality coming soon!');
+    // Navigate to the add-stock page
+    router.push('/add-stock');
   };
   
   const handleNeedMap = () => {

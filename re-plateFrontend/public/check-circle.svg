@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Circle Background -->
+  <circle cx="256" cy="256" r="200" fill="#ecfdf5"/>
+  <!-- Circle Border -->
+  <circle cx="256" cy="256" r="200" stroke="#2ecc71" stroke-width="16" stroke-dasharray="0"/>
+  <!-- Checkmark -->
+  <path d="M352,176L224,304L160,240" stroke="#2ecc71" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> 

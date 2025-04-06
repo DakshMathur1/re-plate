@@ -48,6 +48,11 @@ export default function Requests() {
   const [requests, setRequests] = useState(allRequests);
   
   useEffect(() => {
+    // Reset completed requests to empty array to make all requests active
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('completedRequests', JSON.stringify([]));
+    }
+    
     // Get completed requests from local storage
     const storedCompletedIds = getLocalStorage('completedRequests', []);
     setCompletedRequestIds(storedCompletedIds);

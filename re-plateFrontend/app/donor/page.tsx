@@ -85,7 +85,7 @@ export default function DonorLogin() {
               value={loginId}
               onChange={(e) => setLoginId(e.target.value)}
               className="w-full p-3 border border-[#ccc] rounded-md bg-[#f5f1e6] focus:outline-none focus:ring-2 focus:ring-[#2c3e50] transition-all"
-              placeholder="X2111956"
+              placeholder="A0000000"
               required
             />
           </div>

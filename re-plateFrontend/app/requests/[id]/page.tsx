@@ -170,7 +170,7 @@ export default function RequestDetail({ params }: { params: { id: string } }) {
             </div>
             <div>
               <p class="font-bold">Delivery Added!</p>
-              <p>Upcoming deliveries: ${3 + newAcceptedCount}</p>
+              <p>Upcoming deliveries: ${2 + newAcceptedCount}</p>
             </div>
           </div>
         `;

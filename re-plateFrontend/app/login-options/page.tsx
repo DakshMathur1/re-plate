@@ -31,8 +31,7 @@ export default function LoginOptions() {
   };
 
   const handleShelterClick = () => {
-    // Will implement later
-    alert('Food Shelter login coming soon!');
+    router.push('/shelter-login');
   };
 
   const handleBackClick = () => {
