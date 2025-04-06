@@ -4,6 +4,8 @@ from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2, preprocess_i
 import numpy as np
 import os
 
+#test
+
 # Set image dimensions
 IMG_SIZE = (224, 224)
 
