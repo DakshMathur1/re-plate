@@ -1,0 +1,27 @@
+# VS Code settings (local workspace settings)
+.vscode/
+
+# Python bytecode and caches
+*.py[cod]
+__pycache__/
+*.so
+
+# Virtual environment directories
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# MacOS specific files
+.DS_Store
+
+# Jupyter Notebook checkpoints (if applicable)
+.ipynb_checkpoints/
+
+# Log files
+*.log
+
+# Other temporary files
+*.tmp
