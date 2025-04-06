@@ -33,7 +33,7 @@ def load_image_resnet(img_path):
     return tf.keras.applications.resnet50.preprocess_input(img_array)
 
 # Use image file in the same directory
-img_path = './Sample_Images/good_banana.jpg'  # Place fruit_image.jpg in the same directory as your script
+img_path = './Sample_Images/Bananas/TestingImages/banana1.jpg'  # Place fruit_image.jpg in the same directory as your script
 img_processed = load_image_resnet(img_path)
 predictions = model.predict(img_processed)[0]
 pred_percentages = predictions * 100
