@@ -21,12 +21,20 @@ Follow the steps below to set up and run the project locally:
    ```bash
    git clone git@github.com:Arjun-Mishra-312/re-plate.git
 2. Navigate to the Project Directory
+
+   ```bash
    cd re-plate
 3. Navigate to the Frontend Folder
+
+   ```bash
    cd re-plateFrontend
 4. Install Dependencies
+
+   ```bash
    npm install
 5. Start the Development Server
+
+   ```bash
    npm run dev
 6. Open http://localhost:3000 in your browser to view the app.
 
