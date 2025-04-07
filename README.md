@@ -12,6 +12,26 @@ Food waste contributes significantly to climate change, producing **methane** �
 
 ---
 
+## 🚀 Getting Started
+
+Follow the steps below to set up and run the project locally:
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone git@github.com:Arjun-Mishra-312/re-plate.git
+2. Navigate to the Project Directory
+   cd re-plate
+3. Navigate to the Frontend Folder
+   cd re-plateFrontend
+4. Install Dependencies
+   npm install
+5. Start the Development Server
+   npm run dev
+6. Open http://localhost:3000 in your browser to view the app.
+
+---
+
 ## 🥗 What It Does
 
 Re-Plate is an intelligent donation platform that redefines food redistribution by combining smart classification, analytics, and seamless donor-shelter connections.
