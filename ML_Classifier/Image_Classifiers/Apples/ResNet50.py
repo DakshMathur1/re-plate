@@ -25,8 +25,7 @@ def get_embedding(img_path):
     embedding = embedding / np.linalg.norm(embedding)
     return embedding
 
-#test
-a = 42
+#test2
 
 # Define prototype image paths for each category (one image per category)
 prototypes = {
